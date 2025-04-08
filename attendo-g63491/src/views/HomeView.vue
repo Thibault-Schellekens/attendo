@@ -1,9 +1,6 @@
-<script setup>
-
-</script>
-
 <template>
-  <main>
-    <h1>Welcome</h1>
-  </main>
+  <div>
+    <h2>Accueil</h2>
+    <p>Bienvenue sur la page d'accueil</p>
+  </div>
 </template>

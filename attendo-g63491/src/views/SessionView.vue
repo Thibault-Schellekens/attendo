@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h2>A propos</h2>
+    <h2>Session</h2>
   </div>
 </template>

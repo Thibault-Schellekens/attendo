@@ -1,10 +1,20 @@
-<script setup>
+<script>
+import AppHeader from './components/AppHeader.vue'
 
+export default {
+  name: 'App',
+  components: {
+    AppHeader
+  }
+}
 </script>
 
 <template>
 
-<h1 class="bg-sky-400">Hello, Tailwindcss</h1>
+  <AppHeader/>
+  <main>
+    <RouterView/>
+  </main>
 
 </template>
 
