@@ -33,6 +33,7 @@ export default {
           <input
               v-model="newData"
               name="session"
+              id="session"
               type="text"
               class="w-full pl-40 pr-4 py-2 rounded-lg border-2 border-purple-300 focus:border-purple-500 focus:outline-none transition-colors duration-200"
               placeholder="Nom de la session">

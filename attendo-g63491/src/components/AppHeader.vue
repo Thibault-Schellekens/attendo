@@ -1,12 +1,14 @@
 <script>
 import NavigationLinks from "@/components/NavigationLinks.vue";
 import LoginButton from "@/components/LoginButton.vue";
+import Breadcrumb from "@/components/Breadcrumb.vue";
 
 export default {
   name: 'AppHeader',
   components: {
     NavigationLinks,
     LoginButton,
+    Breadcrumb,
   }
 }
 </script>
@@ -20,5 +22,6 @@ export default {
       <NavigationLinks />
       <LoginButton />
     </nav>
+    <Breadcrumb/>
   </header>
 </template>
