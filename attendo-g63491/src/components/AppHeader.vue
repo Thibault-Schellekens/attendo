@@ -16,7 +16,7 @@ export default {
     <div class="bg-black py-5">
       <h1 class="text-center text-fuchsia-400 text-5xl font-bold">Attendo</h1>
     </div>
-    <nav class="bg-gray-100 py-3 px-4 flex justify-between items-center">
+    <nav class="bg-gray-100 py-3 px-4 flex justify-between items-center border-b-2">
       <NavigationLinks />
       <LoginButton />
     </nav>

@@ -1,0 +1,40 @@
+<script>
+export default {
+  name: "DataTable",
+  props: {
+    headers: Array,
+    fields: Array,
+    dataList: Array,
+  }
+}
+</script>
+
+<template>
+  <div class="flex justify-center items-center">
+    <table
+        class=" w-5/6 border-collapse bg-gradient-to-r from-gray-900 to-fuchsia-900 rounded-lg overflow-hidden shadow-lg mb-12">
+      <thead>
+      <tr class="bg-gradient-to-r from-black to-fuchsia-800 text-white">
+        <th v-for="(header, index) in headers" :key="index"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-b-2 border-fuchsia-700">
+          {{ header }}
+        </th>
+      </tr>
+      </thead>
+      <tbody class="bg-gradient-to-r from-gray-800 to-fuchsia-900 divide-y divide-fuchsia-700">
+      <tr v-for="(data, rowIndex) in dataList" :key="rowIndex"
+          class="hover:bg-gradient-to-r hover:from-gray-700 hover:to-fuchsia-800 text-gray-100 transition-colors duration-200">
+        <td v-for="(field, colIndex) in fields" :key="colIndex"
+            class="px-6 py-4 whitespace-nowrap text-sm">
+          {{ data[field] }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</template>
+
+<style scoped>
+
+</style>
