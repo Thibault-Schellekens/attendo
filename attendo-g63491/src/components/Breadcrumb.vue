@@ -1,19 +1,43 @@
 <script>
-import {useRouter} from "vue-router";
 
 export default {
   name: "Breadcrumb",
+  data() {
+    return {
+      routeParams: {}
+    }
+  },
   computed: {
     breadcrumbs() {
       const route = this.$route;
       const result = [];
 
       let currentRoute = route;
+      if (currentRoute.params) {
+        Object.entries(currentRoute.params).forEach(([key, value]) => {
+          if (value[0] !== ':') {
+            this.routeParams[key] = value;
+          }
+        })
+      }
+
       while (currentRoute) {
         if (currentRoute.meta && currentRoute.meta.breadcrumb) {
+
+          if (currentRoute.params) {
+            Object.entries(currentRoute.params).forEach(([key, value]) => {
+              currentRoute.params[key] = this.routeParams[key];
+            })
+          }
+
           result.unshift({
             label: currentRoute.meta.breadcrumb,
-            to: currentRoute.path,
+            to: {
+              name: currentRoute.name,
+              params: {
+                ...currentRoute.params,
+              }
+            },
           });
         }
 

@@ -53,7 +53,7 @@ export default {
 
     <DataTable :headers="['UE']" :fields="['ue']" :data-list="sessionUE">
       <template #ue="{data}">
-        <RouterLink :to="{ name: 'Home'}"
+        <RouterLink :to="{ name: 'UEDetails', params: { id: this.id, ue: data.ue } }"
                     class="link-style">
           {{ data.ue }}
         </RouterLink>
