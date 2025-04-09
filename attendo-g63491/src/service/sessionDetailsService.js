@@ -23,3 +23,14 @@ export async function insertSessionUE(sessionUE) {
 
     return data;
 }
+
+export async function getSessionCompoId(sessionId, ue) {
+    const {data} = await supabase.from('session_compo')
+        .select('id')
+        .eq('session', sessionId)
+        .eq('ue', ue)
+        .single();
+
+    console.log(data.id)
+    return data.id;
+}

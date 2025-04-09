@@ -53,9 +53,10 @@ export default {
 
     <DataTable :headers="['UE']" :fields="['ue']" :data-list="sessionUE">
       <template #ue="{data}">
-        <RouterLink :to="{ name: 'UEDetails', params: { id: this.id, ue: data.ue } }"
+        <RouterLink :to="{ name: 'UeEventsDetails', params: { id: this.id, ue: data.ue } }"
                     class="link-style">
           {{ data.ue }}
+
         </RouterLink>
       </template>
     </DataTable>
@@ -63,6 +64,7 @@ export default {
     <AddForm @add="addSessionUE" :title="'Ajouter une UE dans la session'" :description="'Ajouter'"
              :input-type="'select'" :options="availableUE"/>
   </div>
+
 </template>
 
 <style scoped>

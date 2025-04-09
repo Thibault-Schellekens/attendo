@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import SessionsView from '@/views/SessionsView.vue';
 import SessionDetails from "@/views/SessionDetails.vue";
-import UEDetailsView from "@/views/UEDetailsView.vue";
+import UeEventsDetailsView from "@/views/UeEventsDetailsView.vue";
 import AboutView from '../views/AboutView.vue';
 import {useAuthStore} from "@/stores/AuthStore.js";
 
@@ -28,10 +28,10 @@ const routes = [
     },
     {
         path: '/session/:id/ue/:ue',
-        component: UEDetailsView,
-        name: 'UEDetails',
+        component: UeEventsDetailsView,
+        name: 'UeEventsDetails',
         props: true,
-        meta: {requiresAuth: true, breadcrumb: 'UEDetails', parent: 'SessionDetails'},
+        meta: {requiresAuth: true, breadcrumb: 'UeEventsDetails', parent: 'SessionDetails'},
     },
     {
         path: '/about',

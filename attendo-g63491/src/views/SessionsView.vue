@@ -49,6 +49,6 @@ export default {
       </template>
     </DataTable>
 
-    <AddForm :title="'Ajouter une session'" :description="'Nouvelle session'" @add="addSession"/>
+    <AddForm :title="'Ajouter une session'" :description="'Nouvelle session'" :placeholder="'juin'" :button-text="`Ajouter l'UE`" @add="addSession"/>
   </div>
 </template>

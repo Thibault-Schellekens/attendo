@@ -2,7 +2,7 @@ import {supabase} from "@/lib/supabaseClient.js";
 
 export async function getSessions() {
     const {data} = await supabase.from('session').select();
-    return data
+    return data;
 }
 
 export async function insertSession(session) {
@@ -10,5 +10,5 @@ export async function insertSession(session) {
 
     if (error) console.log(error);
 
-    return data
+    return data;
 }
