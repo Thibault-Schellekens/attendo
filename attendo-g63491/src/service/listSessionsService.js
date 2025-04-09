@@ -6,7 +6,7 @@ export async function getSessions() {
 }
 
 export async function insertSession(session) {
-    const {data, error} = await supabase.from('session').insert(session).select();
+    const {data, error} = await supabase.from('session').insert(session).select().single();
 
     if (error) console.log(error);
 

@@ -12,7 +12,7 @@ export default {
 <template>
   <div class="flex justify-center items-center">
     <table
-        class=" w-5/6 border-collapse bg-gradient-to-r from-gray-900 to-fuchsia-900 rounded-lg overflow-hidden shadow-lg mb-12">
+        class=" w-5/6 border-collapse bg-gradient-to-r from-gray-900 to-fuchsia-900 rounded-lg overflow-hidden mb-12">
       <thead>
       <tr class="bg-gradient-to-r from-black to-fuchsia-800 text-white">
         <th v-for="(header, index) in headers" :key="index"
@@ -26,7 +26,12 @@ export default {
           class="hover:bg-gradient-to-r hover:from-gray-700 hover:to-fuchsia-800 text-gray-100 transition-colors duration-200">
         <td v-for="(field, colIndex) in fields" :key="colIndex"
             class="px-6 py-4 whitespace-nowrap text-sm">
-          {{ data[field] }}
+          <slot :name="field" :data="data">
+            <span class="text-xl">
+              {{ data[field] }}
+            </span>
+          </slot>
+
         </td>
       </tr>
       </tbody>

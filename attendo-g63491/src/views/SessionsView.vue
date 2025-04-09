@@ -6,7 +6,7 @@ import DataTable from "@/components/DataTable.vue";
 import AddForm from "@/components/AddForm.vue";
 
 export default {
-  name: "SessionView",
+  name: "SessionsView",
   components: {
     DataTable,
     AddForm,
@@ -27,8 +27,7 @@ export default {
       if (newSession.length !== 0) {
         const inserted = await insertSession({label: newSession});
         if (inserted) {
-          this.sessions.push(inserted[0]);
-          console.log(inserted[0])
+          this.sessions.push(inserted);
         }
       }
     }
@@ -41,7 +40,14 @@ export default {
   <div class="m-8">
     <h2 class="text-purple-700 font-bold text-2xl mb-6">Session</h2>
 
-    <DataTable :headers="['Sessions']" :fields="['label']" :data-list="sessions"/>
+    <DataTable :headers="['Sessions']" :fields="['label']" :data-list="sessions">
+      <template #label="{data}">
+        <RouterLink :to="{ name: 'SessionDetails', params: { id: data.id } }"
+                    class="link-style">
+          {{ data.label }}
+        </RouterLink>
+      </template>
+    </DataTable>
 
     <AddForm :title="'Ajouter une session'" :description="'Nouvelle session'" @add="addSession"/>
   </div>

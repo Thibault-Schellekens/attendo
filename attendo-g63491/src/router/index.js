@@ -1,7 +1,8 @@
-import {createRouter, createWebHistory} from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import SessionView from '@/views/SessionView.vue'
-import AboutView from '../views/AboutView.vue'
+import {createRouter, createWebHistory} from 'vue-router';
+import HomeView from '@/views/HomeView.vue';
+import SessionsView from '@/views/SessionsView.vue';
+import SessionDetails from "@/views/SessionDetails.vue";
+import AboutView from '../views/AboutView.vue';
 import {useAuthStore} from "@/stores/AuthStore.js";
 
 const routes = [
@@ -13,9 +14,16 @@ const routes = [
     },
     {
         path: '/sessions',
-        component: SessionView,
-        name: 'Session',
+        component: SessionsView,
+        name: 'Sessions',
         meta: {requiresAuth: true, breadcrumb: 'Sessions', parent: 'Home'},
+    },
+    {
+        path: '/session/:id',
+        component: SessionDetails,
+        name: 'SessionxDetails',
+        props: true,
+        meta: {requiresAuth: true, breadcrumb: 'SessionDetails', parent: 'Sessions'},
     },
     {
         path: '/about',
