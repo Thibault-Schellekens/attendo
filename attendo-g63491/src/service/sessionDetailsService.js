@@ -31,6 +31,5 @@ export async function getSessionCompoId(sessionId, ue) {
         .eq('ue', ue)
         .single();
 
-    console.log(data.id)
     return data.id;
 }

@@ -57,7 +57,7 @@ export default {
                     id="session"
                     class="pl-4 pr-4 py-2 rounded-lg border-2 border-purple-300 focus:border-purple-500 focus:outline-none transition-colors duration-200">
               <option value="" disabled selected>Sélectionner une option</option>
-              <option v-for="(option, index) in options" :key="index" :value="option.ue">{{ option.ue }}</option>
+              <option v-for="(option, index) in options" :key="index" :value="option">{{ option }}</option>
             </select>
           </template>
         </div>

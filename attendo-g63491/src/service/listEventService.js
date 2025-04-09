@@ -16,3 +16,11 @@ export async function insertEvent(event) {
 
     return data;
 }
+
+export async function getEventLabel(eventId) {
+    const {data} = await supabase.from('event')
+        .select('label')
+        .eq('id', eventId)
+        .single();
+    return data.label;
+}

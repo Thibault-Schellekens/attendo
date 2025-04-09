@@ -47,7 +47,11 @@ export default {
       <span class="text-blue-700 font-bold">
       {{ this.ue }}</span> (session {{ sessionName }})</h2>
     <div class="flex flex-wrap gap-6 m-6">
-      <EventInfo v-for="event in events" :key="event.id" :title="event.label"/>
+      <div v-for="event in events" :key="event.id">
+        <RouterLink :to="{name: 'EventRooms', params: {id: this.id, ue: this.ue, eventId: event.id}}">
+          <EventInfo :title="event.label"/>
+        </RouterLink>
+      </div>
     </div>
 
     <AddForm @add="addEvent" :title="'Ajouter une épreuve'" :description="'Intitulé'"

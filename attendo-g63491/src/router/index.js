@@ -5,6 +5,7 @@ import SessionDetails from "@/views/SessionDetails.vue";
 import UeEventsDetailsView from "@/views/UeEventsDetailsView.vue";
 import AboutView from '../views/AboutView.vue';
 import {useAuthStore} from "@/stores/AuthStore.js";
+import EventRoomsView from "@/views/EventRoomsView.vue";
 
 const routes = [
     {
@@ -32,6 +33,13 @@ const routes = [
         name: 'UeEventsDetails',
         props: true,
         meta: {requiresAuth: true, breadcrumb: 'UeEventsDetails', parent: 'SessionDetails'},
+    },
+    {
+        path: '/session/:id/ue/:ue/event/:eventId',
+        component: EventRoomsView,
+        name: 'EventRooms',
+        props: true,
+        meta: {requiresAuth: true, breadcrumb: 'EventRooms', parent: 'UeEventsDetails'},
     },
     {
         path: '/about',

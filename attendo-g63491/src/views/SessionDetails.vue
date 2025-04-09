@@ -36,6 +36,7 @@ export default {
       this.allUE = await getAllUE();
     },
     async addSessionUE(newUE) {
+      console.log(newUE)
       if (newUE.length !== 0) {
         const inserted = await insertSessionUE({ue: newUE, session: this.id});
         if (inserted) {
@@ -62,7 +63,7 @@ export default {
     </DataTable>
 
     <AddForm @add="addSessionUE" :title="'Ajouter une UE dans la session'" :description="'Ajouter'"
-             :input-type="'select'" :options="availableUE"/>
+             :input-type="'select'" :options="availableUE.map(ue => ue.ue)"/>
   </div>
 
 </template>
