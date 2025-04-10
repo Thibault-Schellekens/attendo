@@ -5,6 +5,18 @@ export default {
     headers: Array,
     fields: Array,
     dataList: Array,
+    selectedRows: {
+      type: Array,
+      default: []
+    },
+  },
+  methods: {
+    handleRowClick(data, rowIndex) {
+      this.$emit('row-click', data, rowIndex);
+    },
+    isSelected(rowIndex) {
+      return this.selectedRows.includes(rowIndex);
+    }
   }
 }
 </script>
@@ -23,8 +35,12 @@ export default {
       </thead>
       <tbody class="bg-gradient-to-r from-gray-800 to-fuchsia-900 divide-y divide-fuchsia-700">
       <tr v-for="(data, rowIndex) in dataList" :key="rowIndex"
-          class="hover:bg-gradient-to-r hover:from-gray-700 hover:to-fuchsia-800 text-gray-100 transition-colors duration-200">
-        <td v-for="(field, colIndex) in fields" :key="colIndex"
+          :class="['cursor-pointer  transition-colors duration-200',
+              isSelected(rowIndex) ?
+          'bg-gradient-to-r from-blue-400 to-blue-200 hover:to-blue-500 text-gray-800'
+          : 'hover:bg-gradient-to-r hover:from-gray-700 hover:to-fuchsia-800 text-gray-100']">
+
+        <td v-for="(field, colIndex) in fields" :key="colIndex" @click="handleRowClick(data, rowIndex)"
             class="px-6 py-4 whitespace-nowrap text-sm">
           <slot :name="field" :data="data">
             <span class="text-xl">

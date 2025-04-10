@@ -48,7 +48,9 @@ export default {
       {{ eventLabel }} - {{ this.ue }}</span></h2>
     <div class="flex flex-wrap gap-6 m-6">
       <div v-for="examinationRoom in eventRooms" :key="examinationRoom.id">
-        <RoomInfo :room="examinationRoom.room" :supervisor="examinationRoom.supervisor"/>
+        <RouterLink :to="{name: 'ExaminationRoom', params: {id: this.id, ue: this.ue, eventId: this.eventId, examRoomId: examinationRoom.id}}">
+          <RoomInfo :room="examinationRoom.room" :supervisor="examinationRoom.supervisor"/>
+        </RouterLink>
       </div>
     </div>
 
