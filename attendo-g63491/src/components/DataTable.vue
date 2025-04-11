@@ -7,7 +7,7 @@ export default {
     dataList: Array,
     selectedRows: {
       type: Array,
-      default: []
+      default: () => []
     },
   },
   methods: {

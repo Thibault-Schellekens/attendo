@@ -24,7 +24,7 @@ export const useAuthStore = defineStore("auth", {
             });
         },
         async loginWithGoogle() {
-            const {user, session, error} = await supabase.auth.signInWithOAuth({
+            const {user} = await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 options: {
                     redirectTo: window.location.href

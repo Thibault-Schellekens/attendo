@@ -36,7 +36,6 @@ export default {
       this.allUE = await getAllUE();
     },
     async addSessionUE(newUE) {
-      console.log(newUE)
       if (newUE.length !== 0) {
         const inserted = await insertSessionUE({ue: newUE, session: this.id});
         if (inserted) {

@@ -25,7 +25,7 @@ export default {
         if (currentRoute.meta && currentRoute.meta.breadcrumb) {
 
           if (currentRoute.params) {
-            Object.entries(currentRoute.params).forEach(([key, value]) => {
+            Object.entries(currentRoute.params).forEach((key) => {
               currentRoute.params[key] = this.routeParams[key];
             })
           }

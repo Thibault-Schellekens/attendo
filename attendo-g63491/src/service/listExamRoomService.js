@@ -43,17 +43,6 @@ export async function getStudentName(studentId) {
     return data;
 }
 
-export async function getStudentId(studentId) {
-    console.log(studentId);
-    const {data} = await supabase
-        .from('pae')
-        .select('id')
-        .eq('student_id', studentId)
-        .single()
-    console.log("data", data);
-    return data.id;
-}
-
 export async function insertStudentToExam(studentId, examRoomId) {
     const {data} = await supabase
         .from('examination')
@@ -70,6 +59,8 @@ export async function deleteStudentFromExam(studentId, examRoomId) {
         .delete()
         .eq('student', studentId)
         .eq('examination_room', examRoomId);
+
+    return data;
 }
 
 export async function getAllStudendIdFromExam(examRoomId) {

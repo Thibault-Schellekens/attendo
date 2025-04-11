@@ -4,7 +4,7 @@ import {
   getAllStudents,
   getAllTeacherAcro,
   getExamRoom,
-  getStudentName, getStudentId, insertStudentToExam,
+  getStudentName, insertStudentToExam,
   updateTeacher
 } from "@/service/listExamRoomService.js";
 import AddForm from "@/components/AddForm.vue";
@@ -66,7 +66,6 @@ export default {
       }
     },
     onRowClick(data, index) {
-      console.log(data, index);
       if (this.selectedRows.includes(index)) {
         this.selectedRows.splice(this.selectedRows.indexOf(index), 1);
         deleteStudentFromExam(data.student_id, this.examRoomId);

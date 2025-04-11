@@ -25,3 +25,11 @@ export async function getEventRooms(eventId) {
 
     return data;
 }
+
+export async function getCurrentCapacity(examinationRoom) {
+    const {data} = await supabase.from('examination')
+        .select()
+        .eq('examination_room', examinationRoom)
+
+    return data.length;
+}

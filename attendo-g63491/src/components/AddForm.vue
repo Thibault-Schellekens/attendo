@@ -27,8 +27,10 @@ export default {
   emits: ['add'],
   methods: {
     addData() {
-      this.$emit("add", this.newData);
-      this.newData = "";
+      if (this.newData !== '') {
+        this.$emit("add", this.newData);
+        this.newData = "";
+      }
     }
   }
 }
